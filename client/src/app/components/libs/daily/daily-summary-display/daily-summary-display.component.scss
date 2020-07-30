@@ -1,17 +1,5 @@
-.subheader-display {
-  font-size: 1rem;
 
-  &.description {
-    text-transform: capitalize;
-  }
-}
-
-.header-display {
-  font-size: 1.5rem !important;
-}
-
-.daily-summary-display-container {
-  /*accessible font colors*/
+.daily-summary-display-container {  /*accessible font colors*/
   color: #767677;
   font-family: Roboto, arial, sans-serif;
   display: flex;
