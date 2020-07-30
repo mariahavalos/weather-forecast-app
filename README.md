@@ -17,6 +17,9 @@ This is an application that pulls weather data and represents it on the frontend
   - fetches and displays current weather and represents the city, state, temperature and weather conditions
   - fetches and displays 9 hours worth of temperature data
   - fetches and displays 6 days worth of weather information summarized to high-low temps, weather conditions, and day. 
+  - keyboard navigation/screen reader
+  - minimal responsiveness
+  - some comments
   
 ### Left in for structural demonstration:
   - shared/models directory
@@ -25,7 +28,6 @@ This is an application that pulls weather data and represents it on the frontend
   - observables
   - interactivity
   - more accessibility
-  - add in nest/node backend to obscure calls
-  
-### Not fully tested:
-  - reverse geocoding
+  - add in nest/node backend/services to obscure calls
+  - increase responsiveness
+  - tests 
