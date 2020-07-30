@@ -7,6 +7,9 @@ type Props = {
     weatherIcon: string;
   };
 };
+
+// just displaying the temperature passed in as a prop and 
+// getting the weather icon via url
 export class TemperatureDisplay extends React.Component<Props> {
   render() {
     const { temperature, weatherIcon } = this.props.children;

@@ -32,10 +32,13 @@ class DailyChartGroup extends React.Component<Props> {
       throw Error(body.message);
     }
 
+    // we only need about 9 hours worth of forecast, not two days.
+    // so we're grabbing that here.
     this.hourlyForecast = body.hourly.slice(0, 10).map(
       (value: any) =>
         (value = {
           temp: value.temp,
+          // more unix time
           time: moment.unix(value.dt).format('h A'),
         }),
     );

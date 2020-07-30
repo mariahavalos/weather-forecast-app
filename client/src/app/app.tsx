@@ -16,16 +16,31 @@ class App extends Component {
   longitude = -84.388;
 
   componentDidMount() {
-    navigator.geolocation.getCurrentPosition(success);
+    // get geolocation if possible and assign as props to children
+    // otherwise show as atlanta defaults
 
-    function success(this: any, position: any) {
-      this.lattitude = position.coords.latitude.toString();
-      this.longitude = position.coords.longitude.toString();
+    this.getCurrentPosition().then((position: any) => {
+      this.lattitude = position.coords?.latitude.toString();
+      this.longitude = position.coords?.longitude.toString();
 
       this.getCityInfo().catch((err: any) => console.log(err));
-    }
+    })
   }
 
+  getCurrentPosition(): any {
+    return new Promise((resolve,reject)=> {
+      navigator.geolocation.getCurrentPosition(
+        position => {
+          resolve(position);
+        },
+        error => {
+          reject(error);
+        }
+      );
+    });
+  }
+
+  // currently only works for US based addresses due to dependency on FIPS and state. 
   getCityInfo = async () => {
     const response = await fetch(
       `${process.env.REACT_APP_GEO_LOC_URL}q=${this.lattitude}+${this.longitude}&key=${process.env.REACT_APP_GEO_LOC_KEY}`,
@@ -36,8 +51,8 @@ class App extends Component {
       throw Error(body.message);
     }
 
-    this.stateCode = body.results[0].annotations.FIPS;
-    this.cityName = body.results[0].address_components.short_name;
+    this.stateCode = body.results[0]?.annotations?.FIPS;
+    this.cityName = body.results[0]?.address_components?.short_name;
   };
 
   render() {

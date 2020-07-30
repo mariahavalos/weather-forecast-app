@@ -16,14 +16,17 @@ class DailyDetailedDisplay extends React.Component<Props> {
     data: null,
     weatherDescription: '',
   };
+
+  // check if we have lattitude and longitude from our parent component and use them if we do.
   weatherUrl =
     this.props.children.lattitude && this.props.children.longitude
       ? `${process.env.REACT_APP_WEATHER_APP_URL}&lat=${this.props.children.lattitude}&lon=${this.props.children.longitude}&appid=${process.env.REACT_APP_WEATHER_APP_KEY}`
       : `${process.env.REACT_APP_WEATHER_APP_URL}${process.env.REACT_APP_WEATHER_APP_KEY}`;
 
-  weatherDescription = 'Light Rain';
-  weatherIcon = '04d';
-  weatherTemperature = '87';
+  // defaults
+  weatherDescription = '';
+  weatherIcon = '';
+  weatherTemperature = '';
   cityName = 'Atlanta';
   stateCode = 'GA';
   day = moment().format('dddd');
@@ -43,24 +46,21 @@ class DailyDetailedDisplay extends React.Component<Props> {
       throw Error(body.message);
     }
 
-    this.weatherDescription = body.weather[0].description;
-    this.weatherIcon = body.weather[0].icon;
-    this.weatherTemperature = body.main.temp;
+    // get all of our information from our API call and assign it
+    // if it's available.
+    this.weatherDescription = body.weather[0]?.description;
+    this.weatherIcon = body.weather[0]?.icon;
+    this.weatherTemperature = body.main?.temp;
     return body;
   };
 
   render() {
+    // props for the temperature display component so we aren't doing
+    // duplicate queries.
     const props = {
       children: {
         temperature: this.weatherTemperature,
         weatherIcon: this.weatherIcon,
-      },
-    };
-
-    const locationProps = {
-      children: {
-        lattitude: this.props.children.lattitude,
-        longitude: this.props.children.longitude,
       },
     };
 
@@ -77,7 +77,7 @@ class DailyDetailedDisplay extends React.Component<Props> {
         </div>
         <TemperatureDisplay {...props} />
         <div aria-hidden={true} className="daily-display-chart">
-          <DailyChartGroup {...locationProps} />
+          <DailyChartGroup {...this.props} />
         </div>
       </div>
     );

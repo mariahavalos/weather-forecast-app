@@ -11,6 +11,11 @@ type Props = {
   };
 };
 
+/*
+  join all the prop data together and display as a daily summary
+  to include max and min temp, weather conditions, and days. must
+  parse dt value as it's in unix
+*/
 class DailySummaryDisplay extends React.Component<Props> {
   render() {
     const { maxTemp, minTemp, weatherIcon, date } = this.props.children;
