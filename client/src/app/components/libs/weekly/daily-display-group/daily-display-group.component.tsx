@@ -36,7 +36,6 @@ class DailyDisplayGroup extends React.Component<Props> {
 
   render() {
     const forecast = [];
-
     for (const dailyForecast in this.weeklyForecast) {
       const props = {
         children: {
@@ -50,8 +49,14 @@ class DailyDisplayGroup extends React.Component<Props> {
     }
 
     return (
-      <div className="daily-display-group-container">
-        <div className="daily-forecast">{forecast}</div>
+      <div
+        tabIndex={1}
+        aria-label={'maxMinWeeklyTemperatures'}
+        className="daily-display-group-container"
+      >
+        <div tabIndex={1} className="daily-forecast">
+          {forecast}
+        </div>
       </div>
     );
   }

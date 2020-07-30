@@ -51,6 +51,7 @@ class App extends Component {
     return (
       <div className="app">
         <div className="display-container">
+          <h1 tabIndex={1}>Local Weather Information</h1>
           <div className="daily-display">
             <DailyDetailedDisplay {...props} />
           </div>

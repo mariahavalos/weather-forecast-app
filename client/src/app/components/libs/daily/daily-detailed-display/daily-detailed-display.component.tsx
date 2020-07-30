@@ -65,7 +65,7 @@ class DailyDetailedDisplay extends React.Component<Props> {
     };
 
     return (
-      <div className="daily-detailed-display-container">
+      <div tabIndex={1} className="daily-detailed-display-container">
         <div className="header-display">
           {this.cityName}, {this.stateCode}
         </div>
@@ -76,7 +76,7 @@ class DailyDetailedDisplay extends React.Component<Props> {
           {this.weatherDescription}
         </div>
         <TemperatureDisplay {...props} />
-        <div className="daily-display-chart">
+        <div aria-hidden={true} className="daily-display-chart">
           <DailyChartGroup {...locationProps} />
         </div>
       </div>
