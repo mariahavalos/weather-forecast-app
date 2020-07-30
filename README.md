@@ -4,8 +4,8 @@ This is an application that pulls weather data and represents it on the frontend
 
 ## To run this app from the weather-forecast-app directory:
   1. add the following variables to your .env file: 
-      -REACT_APP_WEATHER_APP_KEY, your OpenWeatherMap API key.
-      -REACT_APP_GEO_LOC_KEY, your OpenCage API key. 
+      - REACT_APP_WEATHER_APP_KEY, your OpenWeatherMap API key.
+      - REACT_APP_GEO_LOC_KEY, your OpenCage API key. 
   2. cd client
   3. npm run start
 
