@@ -1,0 +1,22 @@
+.temperature-display-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 0.5rem;
+
+  .weather-icon {
+    filter: brightness(85%);
+    margin-right: 0.5rem;
+  }
+
+  .temperature {
+    font-size: 4rem;
+    color: #212121;
+    display: flex;
+
+    .degree {
+      font-size: 1rem;
+      margin-top: 0.75rem;
+    }
+  }
+}

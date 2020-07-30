@@ -1,0 +1,33 @@
+.subheader-display {
+  font-size: 1rem;
+
+  &.description {
+    text-transform: capitalize;
+  }
+}
+
+.header-display {
+  font-size: 1.5rem !important;
+}
+
+.daily-forecast {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-left: 2rem;
+  width: 680px;
+
+  @media (max-width: 680px) {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+}
+
+.daily-display-group-container {
+  /*accessible font colors*/
+  color: #767677;
+  font-family: Roboto, arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  max-width: 680px;
+}

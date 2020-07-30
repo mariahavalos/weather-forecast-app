@@ -1,0 +1,25 @@
+.subheader-display {
+  font-size: 1rem;
+
+  &.description {
+    text-transform: capitalize;
+  }
+}
+
+.header-display {
+  font-size: 1.5rem !important;
+}
+
+.daily-summary-display-container {
+  /*accessible font colors*/
+  color: #767677;
+  font-family: Roboto, arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+.max-temp {
+  font-weight: 600;
+}
