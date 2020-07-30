@@ -20,7 +20,7 @@ class DailyDisplayGroup extends React.Component<Props> {
 
   componentDidMount() {
     this.getWeeklyForecast()
-      .then((res) => this.setState({ weeklyForecast: res.express }))
+      .then((res) => this.setState({}))
       .catch((err) => console.log(err));
   }
 

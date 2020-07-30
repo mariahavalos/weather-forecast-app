@@ -12,11 +12,7 @@ type Props = {
 };
 
 class DailyDetailedDisplay extends React.Component<Props> {
-  state = {
-    data: null,
-    weatherDescription: '',
-  };
-
+  
   // check if we have lattitude and longitude from our parent component and use them if we do.
   weatherUrl =
     this.props.children.lattitude && this.props.children.longitude
@@ -34,7 +30,7 @@ class DailyDetailedDisplay extends React.Component<Props> {
 
   componentDidMount() {
     this.getWeather()
-      .then((res) => this.setState({ data: res.express }))
+      .then((res) => this.setState({}))
       .catch((err) => console.log(err));
   }
 

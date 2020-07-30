@@ -5,9 +5,6 @@ import DailyDetailedDisplay from './components/libs/daily/daily-detailed-display
 import DailyDisplayGroup from './components/libs/weekly/daily-display-group/daily-display-group.component';
 
 class App extends Component {
-  state = {
-    data: null,
-  };
   cityName = 'Atlanta';
   stateCode = 'GA';
   day = moment().format('dddd');
